@@ -14,19 +14,7 @@ struct FrameworkDetailView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Button {
-                    isShowingDetailView = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundColor(Color(.label))
-                        .imageScale(.large)
-                        .frame(width: 44, height: 44)
-                    
-                }
-            }.padding()
-            
+            XDismissButton(isShowingDetailView: $isShowingDetailView)
             Spacer()
             
             FrameworkTitleView(framework: framework)
@@ -49,6 +37,6 @@ struct FrameworkDetailView: View {
     }
 }
 
-//#Preview {
-//    FrameworkDetailView(framework: MockData.frameworks[0], isShowingDetailView: )
-//}
+#Preview {
+    FrameworkDetailView(framework: MockData.frameworks[0], isShowingDetailView: .constant(true))
+}
